@@ -1,8 +1,9 @@
 on block break:
     player is sneaking
-    veinminer(event-location, player's tool)
+    veinminer(event-location, player's tool, player)
 
-function veinminer(l: location, t: item):
+function veinminer(l: location, t: item, p: player):
+    damage {_p}'s tool by 1
     set {_drops::*} to drops of block at {_l} using {_t}
     drop {_drops::*} at {_l}
     set block at {_l} to air
